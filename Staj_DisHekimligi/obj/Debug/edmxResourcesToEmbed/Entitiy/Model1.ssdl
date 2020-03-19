@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DIS_HEKIMLIGIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CIHAZ">
+    <Key>
+      <PropertyRef Name="CIHAZ_ID" />
+    </Key>
+    <Property Name="CIHAZ_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CIHAZ_AD" Type="nvarchar(max)" />
+    <Property Name="ISLEM_BILGISI" Type="nvarchar(max)" />
+    <Property Name="BIRIM_FIYAT" Type="int" />
+    <Property Name="SUTUN_AD" Type="nvarchar" MaxLength="50" />
+    <Property Name="SUTUN_ICERIK" Type="int" />
+    <Property Name="TOPLAM_FIYAT" Type="int" />
+  </EntityType>
+  <EntityType Name="Dosya">
+    <Key>
+      <PropertyRef Name="Dosya_ID" />
+    </Key>
+    <Property Name="Dosya_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Dosya_Ad" Type="nvarchar(max)" />
+    <Property Name="Dosya_Tarih" Type="nvarchar(max)" />
+    <Property Name="Dosya_Icerik" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="KULLANICI">
+    <Key>
+      <PropertyRef Name="KUL_ID" />
+    </Key>
+    <Property Name="KUL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KUL_AD" Type="nvarchar" MaxLength="25" />
+    <Property Name="KUL_SIFRE" Type="nvarchar" MaxLength="25" />
+    <Property Name="AD_SOYAD" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="DIS_HEKIMLIGIModelStoreContainer">
+    <EntitySet Name="CIHAZ" EntityType="Self.CIHAZ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dosya" EntityType="Self.Dosya" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KULLANICI" EntityType="Self.KULLANICI" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <input type="file" name="yuklenecekDosya" id="yuklenecekDosya"  />
+    <input type="submit" value="Dosya Yükle " class="btn btn-warning" />
+
+}
+@*@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="col-sm-12">
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label style="float:right">Dosya Seç : </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <label> @Html.TextBox("dosyayolu", null, new { @class = "form-control", @readonly = "readonly",
+                               style = "width:220px"}) </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <button type="submit" class="btn btn-primary" style="float:right">Dosyayı Yükle </button>
+                    </div>
+                    <div class="col-sm-3">
+                        <button type="submit" class="btn btn-primary">Dosyayı Seç </button>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    }*@

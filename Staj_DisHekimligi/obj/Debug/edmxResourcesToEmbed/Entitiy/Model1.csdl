@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DIS_HEKIMLIGIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CIHAZ">
+    <Key>
+      <PropertyRef Name="CIHAZ_ID" />
+    </Key>
+    <Property Name="CIHAZ_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CIHAZ_AD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ISLEM_BILGISI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BIRIM_FIYAT" Type="Int32" />
+    <Property Name="SUTUN_AD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SUTUN_ICERIK" Type="Int32" />
+    <Property Name="TOPLAM_FIYAT" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Dosya">
+    <Key>
+      <PropertyRef Name="Dosya_ID" />
+    </Key>
+    <Property Name="Dosya_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Dosya_Ad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Dosya_Tarih" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Dosya_Icerik" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="KULLANICI">
+    <Key>
+      <PropertyRef Name="KUL_ID" />
+    </Key>
+    <Property Name="KUL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KUL_AD" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="KUL_SIFRE" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="AD_SOYAD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CIHAZ" EntityType="Self.CIHAZ" />
+    <EntitySet Name="Dosya" EntityType="Self.Dosya" />
+    <EntitySet Name="KULLANICI" EntityType="Self.KULLANICI" />
+  </EntityContainer>
+</Schema>

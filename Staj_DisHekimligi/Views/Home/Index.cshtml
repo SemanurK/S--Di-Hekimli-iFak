@@ -1,0 +1,410 @@
+﻿@model  Staj_DisHekimligi.ViewModel.BilgiViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var cihazlar = ViewBag.Cihazlar;
+
+    char tl = '\u00A8';
+}
+@using (Html.BeginForm("Kaydet", "Home", FormMethod.Post))
+{
+    <div class="container">
+        <div class="section-content">
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+
+
+                        <div class="card-body">
+                            <div class="card-body">
+                                <div class="col-md-12">
+
+                                    <h2 class="card-title text-uppercase">ARAŞTIRMA LABORATUVARI (GENEL BİLGİLER)</h2>
+
+
+                                    <h5 class="text-theme-clored text-justify">
+                                        Önemli Not : 1. Aşağıdaki bilgileri doldurduktan sonra "Kaydet" tuşuna basınız. Çıkan ekranda "Dilekçe ve Fiyat Teklifi Yazdır" tuşuna basınız. Dilekçeyi imzalayarak fiyat teklifi belgesi ile birlikte aşağıdaki adrese ulaştırınız. Projeniz ile ilgili Dekanlık Makamı olur yazısı ve fiyat teklifimiz onaylandıktan sonra tarafınıza posta yolu ile gönderilecektir. 2. Araştırma Laboratuvarımız randevulu çalışmaktadır. Lütfen çalışmanız için Araştırma Laboratuvarı görevlisi Niyazi DÜNDAR ((0332) 223 1201 ) ile irtibata geçiniz. Adres : Selçuk Üniversitesi Diş Hekimliği Fakültesi Yazı İşleri Servisi / KONYA Not : Bilgi için (0332) 241 4308  numaralı telefonu arayabilirsiniz.
+
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="border-3px p-30 mb-0">
+
+
+                                        <div class="form-group">
+                                            <label>
+                                                Proje İsmi (*)
+                                            </label>
+                                            @Html.TextBoxFor(m => m.bilgi.Proje_ismi, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(m => m.bilgi.Proje_ismi) @* bu alanda herhangi bir hata olduğunda  tanımlanana mesajı göster.*@
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Proje Yürütücüsü (*) </label>
+                                                    <div>
+                                                        @Html.TextBoxFor(m => m.bilgi.Proje_yöneticisi, new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(m => m.bilgi.Proje_yöneticisi)
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label> Ünvan (*)</label>
+                                                    <div>
+                                                        @Html.DropDownListFor(m => m.bilgi.Unvan, new SelectList(new List<string> { "Prof. Dr.", "Doç. Dr.", "Dr.Öğr Üyesi", "Öğr. Gör.", "Araş. Gör" }), "Ünvan seçiniz", new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(m => m.bilgi.Unvan)
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>Diğer Araştırıcılar (*) </label>
+                                            <div>
+                                                @Html.TextBoxFor(m => m.bilgi.Diger_arastiricilar, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.bilgi.Diger_arastiricilar)
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>Çalıştığı Kurum Tipi (*) </label>
+                                            <div>
+                                                @*  @Html.DropDownListFor(m => m.Calistigi_kurum_tip, new SelectList(new List<string> { "Üniversite", "Özel Sağlık Kuruluşu", "Diğer" }), "Kurum tipini seçiniz", new { @class = "form-control" })*@
+                                                @*   @Html.DropDownList("tip", ViewBag.KurumTipList as SelectList, "Kurum tipini seçiniz", new { @class = "form-control  has-success" })*@
+                                                @*@  @Html.DropDownListFor(m=>m.kurum_tip_list, ViewBag.KurumTipList as SelectList, "Kurum tipini seçiniz", new { @class = "form-control" })*@
+                                                @*    <select class="form-control custom-select" id="Calistigi_kurum_tip" name="Calistigi_kurum_tip">
+                                                        <option>@ViewBag.KurumTipList </option>
+                                                    </select>*@
+                                                @*    @Html.DropDownListFor(m => m.Calistigi_kurum_tip,new SelectList(Model.Calistigi_kurum_tip,"Value","Text"),"Kurum Tipini Seçiniz", new { @class = "form-control" })*@
+                                                @*  @Html.DropDownListFor(m => m.bilgi.Calistigi_kurum_tip, new SelectList(kurum_tip as SelectList,"Value","Text"), "Kurum Tipini Seçiniz", new { @class = "form-control" })*@
+                                                @Html.DropDownListFor(m => m.bilgi.Calistigi_kurum_tip, new SelectList(Model.Tips, "tip_id", "tip_adi"), "Kurum Tipini Seçiniz", new { @class = "form-control" })
+
+                                                @Html.ValidationMessageFor(m => m.bilgi.Calistigi_kurum_tip)
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <label>Çalıştığı Kurum Adı (*) </label>
+                                            <div>
+                                                @*   @Html.DropDownListFor(m => m.Calistigi_kurum_ad, new SelectList(new List<string> { }), "Kurum adını seçiniz", new { @class = "form-control" })*@
+                                                @Html.DropDownListFor(m => m.bilgi.Calistigi_kurum_ad, new SelectList(Model._Ads, "k_id", "kurum_adi"), "Kurum adını seçiniz", new { @class = "form-control " })
+                                                @*  @Html.DropDownListFor(m=>m.bilgi.Calistigi_kurum_ad,new SelectList( Model._Ads), "Kurum adını seçiniz", new { @class = "form-control " })*@
+
+
+                                                @Html.ValidationMessageFor(m => m.bilgi.Calistigi_kurum_ad)
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <label>Çalıştığı Birim Adı (*) </label>
+                                            <div>
+                                                @Html.DropDownListFor(m => m.bilgi.Calistigi_birim_ad, new SelectList(new List<string> { "Diğer" }), "Birim adını seçiniz", new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.bilgi.Calistigi_birim_ad)
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <div class="form-group">
+                                            <label>Anabilim Dalı (*) </label>
+                                            <div>
+                                                @Html.TextBoxFor(m => m.bilgi.Anabilim_dali, new { @class = "form-control" })
+                                              
+                                                @Html.ValidationMessageFor(m => m.bilgi.Anabilim_dali)
+                                            </div>
+                                        </div>
+
+
+                                        
+
+                                        <div class="form-group  ">
+                                            <label>E-posta (*) </label>
+                                            <div>
+                                                @Html.TextBoxFor(m => m.bilgi.Eposta, new { placeholder = "örnek@selcuk.edu.tr - örnek@ogrenci.selcuk.edu.tr", @class = "form-control " })
+                                                @*new özelliği ile tanımlanan nesneye attributes(öznitelik) tanımlanır.*@
+                                                @Html.ValidationMessageFor(m => m.bilgi.Eposta)
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Cep (*) </label>
+
+                                                    <div>
+                                                        @Html.TextBoxFor(m => m.bilgi.Tel, new { placeholder = "5XXXXXXXXX", @class = "form-control" })
+                                                    </div>
+                                                    <div>
+                                                        @Html.ValidationMessageFor(m => m.bilgi.Tel)
+
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Fax (*) </label>
+
+                                                    <div>
+                                                        @Html.TextBoxFor(m => m.bilgi.Fax, new {placeholder= "3XXXXXXXXX", @class = "form-control" })
+                                                    </div>
+
+                                                    <div>  @Html.ValidationMessageFor(m => m.bilgi.Fax)</div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="field-validation-error"> (*) Doldurulması zorunlu alanlar</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="margin-top:30px;">
+                                            <div class="col-sm-12" style="color:#df6c6c; border-top:2px solid #df6c6c;"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+
+
+                                <div class="table-responsive">
+                                    <table class="table color-table muted-table">
+                                        @foreach (var i in Model.cihazs)
+
+                                        {
+
+                                            <thead>
+                                                <tr>
+
+                                                    <th>Cihaz Adı</th>
+                                                    <th>İşlem Bilgisi</th>
+                                                    <th class="text-center ">Birim Fiyatı</th>
+                                                    <th class="text-center ">@i.SUTUN_AD</th>
+                                                    <th class="text-center ">Toplam Fiyat</th>
+                                                    @*   <th class="text-center ">İşlem</th>*@
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+
+                                                    <td>@i.CIHAZ_AD</td>                                                   
+                                                    <td>@i.ISLEM_BILGISI</td>
+                                                    <td class="text-center "><label for="birim" name="birim"> @string.Format("{0:C1}", i.BIRIM_FIYAT)</label></td>
+                                                    @*<td class="text-center " width="20px"> @Html.TextBox("sayi", null, htmlAttributes: new { style = " text-align:center; width:80px ", @class = "digit" })</td>*@
+                                                    @*<td class="text-center " width="20px"><input type="text" id="sayi" value="@i.Birim_Fiyat" onkeypress="Hesapla(@i.Cihaz_ID)" style="text-align:center; width:80px" /></td>*@
+                                                    <!--yukarıdaki iki satır aynı anlama gelmektedir. htmlAttributes ile özellik verebiliz-->
+                                                    @*<td class="text-center" width="20px">@Html.TextBox("sayi",null,new {  onkeypress="Hesapla(i.Cihaz_ID)" } )</td>*@
+                                                    <td class="text-center" >
+                                                       <input type="number"  name="deger_@i.CIHAZ_ID" id="deger_@i.CIHAZ_ID" @*onkeypress="GetCNFPK(@i.Cihaz_ID)"*@ onkeyup="GetCNFPK(@i.CIHAZ_ID)" onclick="GetCNFPK(@i.CIHAZ_ID)" style="text-align:center; width:50px" value="0">
+                                                        @*<input type="number" name="i_Sutun_icerik_@i.Cihaz_ID" id="i_Sutun_icerik_@i.Cihaz_ID" @*onkeypress="GetCNFPK(@i.Cihaz_ID)" onkeyup="GetCNFPK(@i.Cihaz_ID)" style="text-align:center; width:80px">*@
+                                                    
+                                                        <input type="number" name="birimfiyat_@i.CIHAZ_ID" id="birimfiyat_@i.CIHAZ_ID" value="@i.BIRIM_FIYAT" hidden>
+
+                                                    </td>
+
+
+
+                                                    <td class="text-center "> <label for="toplam_@i.CIHAZ_ID" id="toplam_@i.CIHAZ_ID">@string.Format("{0:C1}", 0)</label></td>
+                                                   
+                                                    @*   <td class="text-center "> @Html.ActionLink("Düzenle","Duzenle",new {id=i.Cihaz_ID },new { @class = "btn waves-effect waves-light btn-danger" }) </td>*@
+
+
+                                                </tr>
+
+                                            </tbody>
+
+                                        }
+                                    </table>
+                                    @*<div class="card-body">
+                                        <div class="row" style="float:right">
+                                            <div class="col-sm-12">
+                                                <p> <b>Genel Toplam : </b></p>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <label for="genel_toplam" id="genel_toplam">@string.Format("{0:C1}", 0)</label>
+
+                                            </div>
+                                        </div>
+                                    </div>*@
+                                    <div class="col-sm-12"></div>
+                                    
+                                    <div class="col-lg-4 col-md-4">
+                                        <button type="submit" class="btn btn-block btn-lg btn-outline-danger">Kaydet & Yazdır </button>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+}
+@section scripts
+            {
+
+    <script type="text/javascript">
+        $('#deger').change(function () {
+
+            var x = $("#Weight").val();  
+
+            alert("gtrhb5tr");
+            });
+    </script>
+
+    <script type="text/javascript" src="~/Content/dist/js/pages/mask.init.js"></script>
+
+    <script type="text/javascript">       
+      
+        function GetCNFPK(id) {
+            var birimfiyat = "birimfiyat_" + id;
+          //  alert(birimfiyat);
+            var p = document.getElementById(birimfiyat).value;
+            var deger = "deger_" + id;
+            var q = document.getElementById(deger).value;
+            
+            var toplam = "toplam_" + id;          
+            var totalCNFPK = parseInt(p) * parseInt(q);           
+           
+        
+            document.getElementById(toplam).innerHTML = totalCNFPK;
+            $.ajax({
+                type: 'Get',
+                url: '/Home/Liste',
+                dataType: 'Json',
+                data: { 'id': id, 'deger': q },
+                //bu işlemler gerçekleşip başarılı olduğunda
+                success: function (data) {
+                    $.each(data, function () {
+
+                        alert("hesapla");
+
+                    })
+
+                }
+            });
+           
+        }  
+
+        function Hesapla(id) {
+
+            alert(id);
+                var p = $("#Freight").val();
+                var q = $("#TTLCNF").val();
+            var s = $("#AWB").val();
+            var id = "toplam_" + c;
+                var totalTTLFright = parseFloat(a)*parseFloat(b);
+            $("#id").val(totalTTLFright);
+             
+            //$.ajax({
+            //    type: 'Get',
+            //    url: '/Home/Hesapla',
+            //    dataType: 'Json',
+            //    data: { 'id': id },
+            //    //bu işlemler gerçekleşip başarılı olduğunda
+            //    success: function (data) {
+            //        $.each(data, function () {
+
+            //            alert("hesapla");
+
+            //        })
+
+            //    }
+            //});
+        }
+
+
+
+    </script>
+    <script>
+        //function Hesapla(id) {
+        //    $.ajax({
+        //        type: 'Get',
+        //        url: '/Home/Hesapla',
+        //        data: { 'id': id },
+        //        //bu işlemler gerçekleşip başarılı olduğunda
+        //        success: function (data) {
+
+        //        }
+        //    });
+        //}
+    </script>
+
+
+    <script type="text/javascript">
+        /* sayfa ilk yüklendiğinde bu işlemler gerçekleşsin .
+         bu işlemleri ajax kullanarak gerçekleştirebiliriz*/
+        $(document).ready(function () {
+            /*ajax işlemleri json formatında veriler kullanılır.*/
+
+            $("#bilgi_Calistigi_kurum_tip").change(function () {
+                /*çalıştığı kurum adında bir değişiklik olduğunda değişiklikleri yapabilmek adına */
+                var id = $("#bilgi_Calistigi_kurum_tip").val();
+                // alert(id);
+                var kurum_adlari = $("#bilgi_Calistigi_kurum_ad")
+                kurum_adlari.empty();
+                $.ajax({
+                    url: '/Home/GetKurumAd',
+                    type: 'Post',
+                    dataType: 'Json',
+                    data: { 'id': id },
+                    //bu işlemler gerçekleşip başarılı olduğunda
+                    success: function (data) {
+                        $.each(data, function () {
+                            //foreach görevini görür içerisinde dönülecek olan veri datayı şaret eder, her bir data için gelen değer option her bir dönüşte bize gelen index
+                            kurum_adlari.append('<option value=' + this.k_id + '>' + this.kurum_adi + '</option>')
+                            //$('#district').append('<option value=' + this.DistrictId + '>' + this.DistrictName + '</option>');
+
+                        })
+
+                    }
+                });
+
+
+            });
+
+        });
+
+    </script>
+
+
+
+
+}
+
+
+

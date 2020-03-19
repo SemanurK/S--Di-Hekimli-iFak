@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DIS_HEKIMLIGIModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="CIHAZ">
+      <EntityTypeMapping TypeName="DIS_HEKIMLIGIModel.CIHAZ">
+        <MappingFragment StoreEntitySet="CIHAZ">
+          <ScalarProperty Name="CIHAZ_ID" ColumnName="CIHAZ_ID" />
+          <ScalarProperty Name="CIHAZ_AD" ColumnName="CIHAZ_AD" />
+          <ScalarProperty Name="ISLEM_BILGISI" ColumnName="ISLEM_BILGISI" />
+          <ScalarProperty Name="BIRIM_FIYAT" ColumnName="BIRIM_FIYAT" />
+          <ScalarProperty Name="SUTUN_AD" ColumnName="SUTUN_AD" />
+          <ScalarProperty Name="SUTUN_ICERIK" ColumnName="SUTUN_ICERIK" />
+          <ScalarProperty Name="TOPLAM_FIYAT" ColumnName="TOPLAM_FIYAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dosya">
+      <EntityTypeMapping TypeName="DIS_HEKIMLIGIModel.Dosya">
+        <MappingFragment StoreEntitySet="Dosya">
+          <ScalarProperty Name="Dosya_ID" ColumnName="Dosya_ID" />
+          <ScalarProperty Name="Dosya_Ad" ColumnName="Dosya_Ad" />
+          <ScalarProperty Name="Dosya_Tarih" ColumnName="Dosya_Tarih" />
+          <ScalarProperty Name="Dosya_Icerik" ColumnName="Dosya_Icerik" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KULLANICI">
+      <EntityTypeMapping TypeName="DIS_HEKIMLIGIModel.KULLANICI">
+        <MappingFragment StoreEntitySet="KULLANICI">
+          <ScalarProperty Name="KUL_ID" ColumnName="KUL_ID" />
+          <ScalarProperty Name="KUL_AD" ColumnName="KUL_AD" />
+          <ScalarProperty Name="KUL_SIFRE" ColumnName="KUL_SIFRE" />
+          <ScalarProperty Name="AD_SOYAD" ColumnName="AD_SOYAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

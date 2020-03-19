@@ -1,0 +1,1262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://selcuk.edu.tr/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="https://servisler.yok.gov.tr/ws/UniversiteBirimv4" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://selcuk.edu.tr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://selcuk.edu.tr/">
+      <s:import namespace="https://servisler.yok.gov.tr/ws/UniversiteBirimv4" />
+      <s:element name="yoksisOgrAktif">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kllAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sifre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TcNo" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="kayitTarihi" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="yoksisOgrAktifResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="yoksisOgrAktifResult" type="tns:ArrayOfOgrdetay" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOgrdetay">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ogrdetay" nillable="true" type="tns:ogrdetay" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ogrdetay">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TC_KIMLIK_NO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OGR_NO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SOYADI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BABA_ADI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ANNE_ADI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOGUM_TARIHI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CINSIYETI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UYRUGU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BIRIM_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UNIV_ADI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FAKULTE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PROGRAM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GIRIS_TURU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GIRIS_PUANI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GIRIS_PUAN_TURU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AYRILMA_NEDENI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AYRILMA_TARIHI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SINIFI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HAZIRLIK_SINIFI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KAC_DONEM_HAZIRLIK" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AKTS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KAYIT_TARIHI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OGRENCILIK_STATUSU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OGRENCILIK_STATUSUKOD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DIPLOMA_NOTU100" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DIPLOMA_NOTU4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DIPLOMA_NO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OGRENCILIK_HAKKI_VARMI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OGRENCILIK_HAKKI_BITTIGI_TARIH" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ENGEL_TURU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YATAY_BIRIM_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INSERT_DATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HATA_KODU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HATA_ACIKLAMA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="COUNT" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="yoksisOgrAktifTumu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TcNo" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="yoksisOgrAktifTumuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="yoksisOgrAktifTumuResult" type="tns:ArrayOfOgrdetay" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MezunSorgu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tc" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MezunSorguResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MezunSorguResult" type="tns:mezundetaysonuc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="mezundetaysonuc">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="list" type="tns:ArrayOfMezundetay" />
+          <s:element minOccurs="1" maxOccurs="1" name="HataKodu" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="HataAciklama" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMezundetay">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="mezundetay" nillable="true" type="tns:mezundetay" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="mezundetay">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TCKNO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SOYADI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ANNE_ADI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BABA_ADI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOGUM_TARIHI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KAYIT_TARIHI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MEZUNIYET_TARIHI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DIPLOMA_NOTU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DIPLOMA_NOT_SISTEMI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DIPLOMA_NO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UNIVERSITE_ADI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FAK_MYO_YO_ENS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PROGRAM_ADI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UNIV_ID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BIRIM_ID" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="DURUM" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AltBirimdekiProgramlariGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BIRIM_ID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltBirimdekiProgramlariGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AltBirimdekiProgramlariGetirResult" type="tns:ArrayOfBirimv4" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBirimv4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Birimv4" nillable="true" type="s1:Birimv4" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UniversiteleriGetir">
+        <s:complexType />
+      </s:element>
+      <s:element name="UniversiteleriGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UniversiteleriGetirResult" type="tns:ArrayOfUniversitev4" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUniversitev4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Universitev4" nillable="true" type="s1:Universitev4" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AltBirimleriGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BIRIM_ID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltBirimleriGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AltBirimleriGetirResult" type="tns:ArrayOfBirimv4" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="mebMezunSorgula">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tc" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="mebMezunSorgulaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mebMezunSorgulaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Users" type="tns:Users" />
+      <s:complexType name="Users">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="mebmezundetaysorgula">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tc" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="mebmezundetaysorgulaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mebmezundetaysorgulaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OgrencininSinavlariniGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tc" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OgrencininSinavlariniGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OgrencininSinavlariniGetirResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OgrencininNotlariniGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tc" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="sinavID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OgrencininNotlariniGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OgrencininNotlariniGetirResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GETcezaturleri">
+        <s:complexType />
+      </s:element>
+      <s:element name="GETcezaturleriResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GETcezaturleriResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GETizinturleri">
+        <s:complexType />
+      </s:element>
+      <s:element name="GETizinturleriResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GETizinturleriResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GETogrencicezalar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tc" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GETogrencicezalarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GETogrencicezalarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GETogrencicezalarAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="GETogrencicezalarAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GETogrencicezalarAllResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GETogrenciizinler">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tc" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GETogrenciizinlerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GETogrenciizinlerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GETogrenciizinlerAktif">
+        <s:complexType />
+      </s:element>
+      <s:element name="GETogrenciizinlerAktifResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GETogrenciizinlerAktifResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POSTogrencicezalar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ogrVeri" type="tns:ogrCeza" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ogrCeza">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="tcKimlikNo" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="birimID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cezaID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="yonetmelikMaddeFikra" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cezaMahkemeIptalmi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cezaTarihi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cezaBaslangicTarihi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cezaBitisTarihi" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="POSTogrencicezalarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POSTogrencicezalarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PUTogrencicezalar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ogrVeri" type="tns:ogrCeza" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PUTogrencicezalarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PUTogrencicezalarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DELETEogrencicezalar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DELETEogrencicezalarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DELETEogrencicezalarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POSTogrenciizinler">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ogrVeri" type="tns:ogrIzin" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ogrIzin">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="tcKimlikNo" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="birimID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="kararTarihi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="izinBaslangicTarihi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="izinBitisTarihi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="izinSuresi" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="POSTogrenciizinlerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POSTogrenciizinlerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PUTogrenciizinler">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ogrVeri" type="tns:ogrIzin" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PUTogrenciizinlerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PUTogrenciizinlerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DELETEogrenciizinler">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DELETEogrenciizinlerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DELETEogrenciizinlerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GETasalAskerlik">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tcno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="kull" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GETasalAskerlikResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GETasalAskerlikResult" type="tns:askerlikSorgu" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="askerlikSorgu">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="tcKimlikNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="adi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="soyadi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="askerlikDurumAciklama" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="askerlikErtDurumKod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="askerlikErtDurumAciklama" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ertBitTarihi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="hataKodu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="hataAciklama" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://servisler.yok.gov.tr/ws/UniversiteBirimv4">
+      <s:complexType name="Birimv4">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="BIRIM_UZUN_ADI" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="BIRIM_ADI_INGILIZCE" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="BAGLI_OLDUGU_BIRIM_ID" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="OGRENIM_SURESI" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="KILAVUZ_KODU" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="UNIVERSITE" nillable="true" type="s1:Referansv1" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="FAKULTE_YO_MYO_ENSTITU" nillable="true" type="s1:Referansv1" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="BIRIM" nillable="true" type="s1:Referansv1" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="BIRIM_TURU" nillable="true" type="s1:Referansv12" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="UNIVERSITE_TURU" nillable="true" type="s1:Referansv12" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="AKTIFLIK" nillable="true" type="s1:Referansv12" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="OGRENIM_DILI" nillable="true" type="s1:Referansv12" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="OGRENIM_TURU" nillable="true" type="s1:Referansv12" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="IL" nillable="true" type="s1:Referansv12" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ILCE" nillable="true" type="s1:Referansv12" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="KOD_BID" nillable="true" type="s1:Referansv12" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Referansv1">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="KOD" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="AD" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ACIKLAMA" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Referansv12">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="KOD" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="AD" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ACIKLAMA" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Universitev4">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="BIRIM_ID" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="BIRIM_ADI" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="BIRIM_ADI_INGILIZCE" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="TELEFON" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="FAKS" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ADRES" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="WEB" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="EPOSTA" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="UNIVERSITE_TURU" nillable="true" type="s1:Referansv12" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="AKTIFLIK" nillable="true" type="s1:Referansv12" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="IL" nillable="true" type="s1:Referansv12" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ILCE" nillable="true" type="s1:Referansv12" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="BUYUKSEHIR" nillable="true" type="s1:Referansv12" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="DENIZ_KIYISI" nillable="true" type="s1:Referansv12" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="yoksisOgrAktifSoapIn">
+    <wsdl:part name="parameters" element="tns:yoksisOgrAktif" />
+  </wsdl:message>
+  <wsdl:message name="yoksisOgrAktifSoapOut">
+    <wsdl:part name="parameters" element="tns:yoksisOgrAktifResponse" />
+  </wsdl:message>
+  <wsdl:message name="yoksisOgrAktifTumuSoapIn">
+    <wsdl:part name="parameters" element="tns:yoksisOgrAktifTumu" />
+  </wsdl:message>
+  <wsdl:message name="yoksisOgrAktifTumuSoapOut">
+    <wsdl:part name="parameters" element="tns:yoksisOgrAktifTumuResponse" />
+  </wsdl:message>
+  <wsdl:message name="MezunSorguSoapIn">
+    <wsdl:part name="parameters" element="tns:MezunSorgu" />
+  </wsdl:message>
+  <wsdl:message name="MezunSorguSoapOut">
+    <wsdl:part name="parameters" element="tns:MezunSorguResponse" />
+  </wsdl:message>
+  <wsdl:message name="AltBirimdekiProgramlariGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:AltBirimdekiProgramlariGetir" />
+  </wsdl:message>
+  <wsdl:message name="AltBirimdekiProgramlariGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:AltBirimdekiProgramlariGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="UniversiteleriGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:UniversiteleriGetir" />
+  </wsdl:message>
+  <wsdl:message name="UniversiteleriGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:UniversiteleriGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="AltBirimleriGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:AltBirimleriGetir" />
+  </wsdl:message>
+  <wsdl:message name="AltBirimleriGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:AltBirimleriGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="mebMezunSorgulaSoapIn">
+    <wsdl:part name="parameters" element="tns:mebMezunSorgula" />
+  </wsdl:message>
+  <wsdl:message name="mebMezunSorgulaSoapOut">
+    <wsdl:part name="parameters" element="tns:mebMezunSorgulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="mebMezunSorgulaUsers">
+    <wsdl:part name="Users" element="tns:Users" />
+  </wsdl:message>
+  <wsdl:message name="mebmezundetaysorgulaSoapIn">
+    <wsdl:part name="parameters" element="tns:mebmezundetaysorgula" />
+  </wsdl:message>
+  <wsdl:message name="mebmezundetaysorgulaSoapOut">
+    <wsdl:part name="parameters" element="tns:mebmezundetaysorgulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="mebmezundetaysorgulaUsers">
+    <wsdl:part name="Users" element="tns:Users" />
+  </wsdl:message>
+  <wsdl:message name="OgrencininSinavlariniGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:OgrencininSinavlariniGetir" />
+  </wsdl:message>
+  <wsdl:message name="OgrencininSinavlariniGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:OgrencininSinavlariniGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="OgrencininSinavlariniGetirUsers">
+    <wsdl:part name="Users" element="tns:Users" />
+  </wsdl:message>
+  <wsdl:message name="OgrencininNotlariniGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:OgrencininNotlariniGetir" />
+  </wsdl:message>
+  <wsdl:message name="OgrencininNotlariniGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:OgrencininNotlariniGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="OgrencininNotlariniGetirUsers">
+    <wsdl:part name="Users" element="tns:Users" />
+  </wsdl:message>
+  <wsdl:message name="GETcezaturleriSoapIn">
+    <wsdl:part name="parameters" element="tns:GETcezaturleri" />
+  </wsdl:message>
+  <wsdl:message name="GETcezaturleriSoapOut">
+    <wsdl:part name="parameters" element="tns:GETcezaturleriResponse" />
+  </wsdl:message>
+  <wsdl:message name="GETcezaturleriUsers">
+    <wsdl:part name="Users" element="tns:Users" />
+  </wsdl:message>
+  <wsdl:message name="GETizinturleriSoapIn">
+    <wsdl:part name="parameters" element="tns:GETizinturleri" />
+  </wsdl:message>
+  <wsdl:message name="GETizinturleriSoapOut">
+    <wsdl:part name="parameters" element="tns:GETizinturleriResponse" />
+  </wsdl:message>
+  <wsdl:message name="GETizinturleriUsers">
+    <wsdl:part name="Users" element="tns:Users" />
+  </wsdl:message>
+  <wsdl:message name="GETogrencicezalarSoapIn">
+    <wsdl:part name="parameters" element="tns:GETogrencicezalar" />
+  </wsdl:message>
+  <wsdl:message name="GETogrencicezalarSoapOut">
+    <wsdl:part name="parameters" element="tns:GETogrencicezalarResponse" />
+  </wsdl:message>
+  <wsdl:message name="GETogrencicezalarUsers">
+    <wsdl:part name="Users" element="tns:Users" />
+  </wsdl:message>
+  <wsdl:message name="GETogrencicezalarAllSoapIn">
+    <wsdl:part name="parameters" element="tns:GETogrencicezalarAll" />
+  </wsdl:message>
+  <wsdl:message name="GETogrencicezalarAllSoapOut">
+    <wsdl:part name="parameters" element="tns:GETogrencicezalarAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="GETogrencicezalarAllUsers">
+    <wsdl:part name="Users" element="tns:Users" />
+  </wsdl:message>
+  <wsdl:message name="GETogrenciizinlerSoapIn">
+    <wsdl:part name="parameters" element="tns:GETogrenciizinler" />
+  </wsdl:message>
+  <wsdl:message name="GETogrenciizinlerSoapOut">
+    <wsdl:part name="parameters" element="tns:GETogrenciizinlerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GETogrenciizinlerUsers">
+    <wsdl:part name="Users" element="tns:Users" />
+  </wsdl:message>
+  <wsdl:message name="GETogrenciizinlerAktifSoapIn">
+    <wsdl:part name="parameters" element="tns:GETogrenciizinlerAktif" />
+  </wsdl:message>
+  <wsdl:message name="GETogrenciizinlerAktifSoapOut">
+    <wsdl:part name="parameters" element="tns:GETogrenciizinlerAktifResponse" />
+  </wsdl:message>
+  <wsdl:message name="GETogrenciizinlerAktifUsers">
+    <wsdl:part name="Users" element="tns:Users" />
+  </wsdl:message>
+  <wsdl:message name="POSTogrencicezalarSoapIn">
+    <wsdl:part name="parameters" element="tns:POSTogrencicezalar" />
+  </wsdl:message>
+  <wsdl:message name="POSTogrencicezalarSoapOut">
+    <wsdl:part name="parameters" element="tns:POSTogrencicezalarResponse" />
+  </wsdl:message>
+  <wsdl:message name="POSTogrencicezalarUsers">
+    <wsdl:part name="Users" element="tns:Users" />
+  </wsdl:message>
+  <wsdl:message name="PUTogrencicezalarSoapIn">
+    <wsdl:part name="parameters" element="tns:PUTogrencicezalar" />
+  </wsdl:message>
+  <wsdl:message name="PUTogrencicezalarSoapOut">
+    <wsdl:part name="parameters" element="tns:PUTogrencicezalarResponse" />
+  </wsdl:message>
+  <wsdl:message name="PUTogrencicezalarUsers">
+    <wsdl:part name="Users" element="tns:Users" />
+  </wsdl:message>
+  <wsdl:message name="DELETEogrencicezalarSoapIn">
+    <wsdl:part name="parameters" element="tns:DELETEogrencicezalar" />
+  </wsdl:message>
+  <wsdl:message name="DELETEogrencicezalarSoapOut">
+    <wsdl:part name="parameters" element="tns:DELETEogrencicezalarResponse" />
+  </wsdl:message>
+  <wsdl:message name="DELETEogrencicezalarUsers">
+    <wsdl:part name="Users" element="tns:Users" />
+  </wsdl:message>
+  <wsdl:message name="POSTogrenciizinlerSoapIn">
+    <wsdl:part name="parameters" element="tns:POSTogrenciizinler" />
+  </wsdl:message>
+  <wsdl:message name="POSTogrenciizinlerSoapOut">
+    <wsdl:part name="parameters" element="tns:POSTogrenciizinlerResponse" />
+  </wsdl:message>
+  <wsdl:message name="POSTogrenciizinlerUsers">
+    <wsdl:part name="Users" element="tns:Users" />
+  </wsdl:message>
+  <wsdl:message name="PUTogrenciizinlerSoapIn">
+    <wsdl:part name="parameters" element="tns:PUTogrenciizinler" />
+  </wsdl:message>
+  <wsdl:message name="PUTogrenciizinlerSoapOut">
+    <wsdl:part name="parameters" element="tns:PUTogrenciizinlerResponse" />
+  </wsdl:message>
+  <wsdl:message name="PUTogrenciizinlerUsers">
+    <wsdl:part name="Users" element="tns:Users" />
+  </wsdl:message>
+  <wsdl:message name="DELETEogrenciizinlerSoapIn">
+    <wsdl:part name="parameters" element="tns:DELETEogrenciizinler" />
+  </wsdl:message>
+  <wsdl:message name="DELETEogrenciizinlerSoapOut">
+    <wsdl:part name="parameters" element="tns:DELETEogrenciizinlerResponse" />
+  </wsdl:message>
+  <wsdl:message name="DELETEogrenciizinlerUsers">
+    <wsdl:part name="Users" element="tns:Users" />
+  </wsdl:message>
+  <wsdl:message name="GETasalAskerlikSoapIn">
+    <wsdl:part name="parameters" element="tns:GETasalAskerlik" />
+  </wsdl:message>
+  <wsdl:message name="GETasalAskerlikSoapOut">
+    <wsdl:part name="parameters" element="tns:GETasalAskerlikResponse" />
+  </wsdl:message>
+  <wsdl:portType name="yoksisOgrSoap">
+    <wsdl:operation name="yoksisOgrAktif">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verilen tarihden önce başka bir üniversiteye yapılan aktif kayıtları gösterir.</wsdl:documentation>
+      <wsdl:input message="tns:yoksisOgrAktifSoapIn" />
+      <wsdl:output message="tns:yoksisOgrAktifSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="yoksisOgrAktifTumu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Girilen TC'ye ait tüm üniversite kayıtlarını gösterir.</wsdl:documentation>
+      <wsdl:input message="tns:yoksisOgrAktifTumuSoapIn" />
+      <wsdl:output message="tns:yoksisOgrAktifTumuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MezunSorgu">
+      <wsdl:input message="tns:MezunSorguSoapIn" />
+      <wsdl:output message="tns:MezunSorguSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AltBirimdekiProgramlariGetir">
+      <wsdl:input message="tns:AltBirimdekiProgramlariGetirSoapIn" />
+      <wsdl:output message="tns:AltBirimdekiProgramlariGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UniversiteleriGetir">
+      <wsdl:input message="tns:UniversiteleriGetirSoapIn" />
+      <wsdl:output message="tns:UniversiteleriGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AltBirimleriGetir">
+      <wsdl:input message="tns:AltBirimleriGetirSoapIn" />
+      <wsdl:output message="tns:AltBirimleriGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="mebMezunSorgula">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MEB mezun olup olmadığını döndürür.</wsdl:documentation>
+      <wsdl:input message="tns:mebMezunSorgulaSoapIn" />
+      <wsdl:output message="tns:mebMezunSorgulaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="mebmezundetaysorgula">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MEB lise mezuniyet detaylarını döndürür.</wsdl:documentation>
+      <wsdl:input message="tns:mebmezundetaysorgulaSoapIn" />
+      <wsdl:output message="tns:mebmezundetaysorgulaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OgrencininSinavlariniGetir">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Öğrencinin YÖKDİL sınavlarını döndürür.</wsdl:documentation>
+      <wsdl:input message="tns:OgrencininSinavlariniGetirSoapIn" />
+      <wsdl:output message="tns:OgrencininSinavlariniGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OgrencininNotlariniGetir">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Öğrencinin YÖKDİL sınav notlarını döndürür.</wsdl:documentation>
+      <wsdl:input message="tns:OgrencininNotlariniGetirSoapIn" />
+      <wsdl:output message="tns:OgrencininNotlariniGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GETcezaturleri">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ceza türlerini döndürür.</wsdl:documentation>
+      <wsdl:input message="tns:GETcezaturleriSoapIn" />
+      <wsdl:output message="tns:GETcezaturleriSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GETizinturleri">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">İzin türlerini döndürür.</wsdl:documentation>
+      <wsdl:input message="tns:GETizinturleriSoapIn" />
+      <wsdl:output message="tns:GETizinturleriSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GETogrencicezalar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Girilen TC numarasına göre varsa cezaları döndürür.</wsdl:documentation>
+      <wsdl:input message="tns:GETogrencicezalarSoapIn" />
+      <wsdl:output message="tns:GETogrencicezalarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GETogrencicezalarAll">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Tüm cezalı öğrencileri döndürür.</wsdl:documentation>
+      <wsdl:input message="tns:GETogrencicezalarAllSoapIn" />
+      <wsdl:output message="tns:GETogrencicezalarAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GETogrenciizinler">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Girilen TC numarasına göre varsa öğrencinin izin bilgilerini döndürür.</wsdl:documentation>
+      <wsdl:input message="tns:GETogrenciizinlerSoapIn" />
+      <wsdl:output message="tns:GETogrenciizinlerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GETogrenciizinlerAktif">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Girilen TC numarasına göre varsa öğrencinin izin bilgilerini döndürür.</wsdl:documentation>
+      <wsdl:input message="tns:GETogrenciizinlerAktifSoapIn" />
+      <wsdl:output message="tns:GETogrenciizinlerAktifSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POSTogrencicezalar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Yöksis de kayıtlı öğrenci için ceza bilgileri girilir.</wsdl:documentation>
+      <wsdl:input message="tns:POSTogrencicezalarSoapIn" />
+      <wsdl:output message="tns:POSTogrencicezalarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PUTogrencicezalar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Kayıtlı ceza bilgilerini güncelleme.</wsdl:documentation>
+      <wsdl:input message="tns:PUTogrencicezalarSoapIn" />
+      <wsdl:output message="tns:PUTogrencicezalarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DELETEogrencicezalar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Kayıtlı ceza bilgilerini silme.</wsdl:documentation>
+      <wsdl:input message="tns:DELETEogrencicezalarSoapIn" />
+      <wsdl:output message="tns:DELETEogrencicezalarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POSTogrenciizinler">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Yöksis de kayıtlı öğrenci için izin bilgileri girilir.</wsdl:documentation>
+      <wsdl:input message="tns:POSTogrenciizinlerSoapIn" />
+      <wsdl:output message="tns:POSTogrenciizinlerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PUTogrenciizinler">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Kayıtlı izin bilgilerini güncelleme.</wsdl:documentation>
+      <wsdl:input message="tns:PUTogrenciizinlerSoapIn" />
+      <wsdl:output message="tns:PUTogrenciizinlerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DELETEogrenciizinler">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Kayıtlı izin bilgilerini silme.</wsdl:documentation>
+      <wsdl:input message="tns:DELETEogrenciizinlerSoapIn" />
+      <wsdl:output message="tns:DELETEogrenciizinlerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GETasalAskerlik">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Askerlik sorgulama</wsdl:documentation>
+      <wsdl:input message="tns:GETasalAskerlikSoapIn" />
+      <wsdl:output message="tns:GETasalAskerlikSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="yoksisOgrSoap" type="tns:yoksisOgrSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="yoksisOgrAktif">
+      <soap:operation soapAction="http://selcuk.edu.tr/yoksisOgrAktif" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="yoksisOgrAktifTumu">
+      <soap:operation soapAction="http://selcuk.edu.tr/yoksisOgrAktifTumu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MezunSorgu">
+      <soap:operation soapAction="http://selcuk.edu.tr/MezunSorgu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltBirimdekiProgramlariGetir">
+      <soap:operation soapAction="http://selcuk.edu.tr/AltBirimdekiProgramlariGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UniversiteleriGetir">
+      <soap:operation soapAction="http://selcuk.edu.tr/UniversiteleriGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltBirimleriGetir">
+      <soap:operation soapAction="http://selcuk.edu.tr/AltBirimleriGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="mebMezunSorgula">
+      <soap:operation soapAction="http://selcuk.edu.tr/mebMezunSorgula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:mebMezunSorgulaUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="mebmezundetaysorgula">
+      <soap:operation soapAction="http://selcuk.edu.tr/mebmezundetaysorgula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:mebmezundetaysorgulaUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OgrencininSinavlariniGetir">
+      <soap:operation soapAction="http://selcuk.edu.tr/OgrencininSinavlariniGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:OgrencininSinavlariniGetirUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OgrencininNotlariniGetir">
+      <soap:operation soapAction="http://selcuk.edu.tr/OgrencininNotlariniGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:OgrencininNotlariniGetirUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETcezaturleri">
+      <soap:operation soapAction="http://selcuk.edu.tr/GETcezaturleri" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GETcezaturleriUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETizinturleri">
+      <soap:operation soapAction="http://selcuk.edu.tr/GETizinturleri" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GETizinturleriUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETogrencicezalar">
+      <soap:operation soapAction="http://selcuk.edu.tr/GETogrencicezalar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GETogrencicezalarUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETogrencicezalarAll">
+      <soap:operation soapAction="http://selcuk.edu.tr/GETogrencicezalarAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GETogrencicezalarAllUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETogrenciizinler">
+      <soap:operation soapAction="http://selcuk.edu.tr/GETogrenciizinler" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GETogrenciizinlerUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETogrenciizinlerAktif">
+      <soap:operation soapAction="http://selcuk.edu.tr/GETogrenciizinlerAktif" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GETogrenciizinlerAktifUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POSTogrencicezalar">
+      <soap:operation soapAction="http://selcuk.edu.tr/POSTogrencicezalar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:POSTogrencicezalarUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PUTogrencicezalar">
+      <soap:operation soapAction="http://selcuk.edu.tr/PUTogrencicezalar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PUTogrencicezalarUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DELETEogrencicezalar">
+      <soap:operation soapAction="http://selcuk.edu.tr/DELETEogrencicezalar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DELETEogrencicezalarUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POSTogrenciizinler">
+      <soap:operation soapAction="http://selcuk.edu.tr/POSTogrenciizinler" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:POSTogrenciizinlerUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PUTogrenciizinler">
+      <soap:operation soapAction="http://selcuk.edu.tr/PUTogrenciizinler" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PUTogrenciizinlerUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DELETEogrenciizinler">
+      <soap:operation soapAction="http://selcuk.edu.tr/DELETEogrenciizinler" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DELETEogrenciizinlerUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETasalAskerlik">
+      <soap:operation soapAction="http://selcuk.edu.tr/GETasalAskerlik" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="yoksisOgrSoap12" type="tns:yoksisOgrSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="yoksisOgrAktif">
+      <soap12:operation soapAction="http://selcuk.edu.tr/yoksisOgrAktif" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="yoksisOgrAktifTumu">
+      <soap12:operation soapAction="http://selcuk.edu.tr/yoksisOgrAktifTumu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MezunSorgu">
+      <soap12:operation soapAction="http://selcuk.edu.tr/MezunSorgu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltBirimdekiProgramlariGetir">
+      <soap12:operation soapAction="http://selcuk.edu.tr/AltBirimdekiProgramlariGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UniversiteleriGetir">
+      <soap12:operation soapAction="http://selcuk.edu.tr/UniversiteleriGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltBirimleriGetir">
+      <soap12:operation soapAction="http://selcuk.edu.tr/AltBirimleriGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="mebMezunSorgula">
+      <soap12:operation soapAction="http://selcuk.edu.tr/mebMezunSorgula" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:mebMezunSorgulaUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="mebmezundetaysorgula">
+      <soap12:operation soapAction="http://selcuk.edu.tr/mebmezundetaysorgula" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:mebmezundetaysorgulaUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OgrencininSinavlariniGetir">
+      <soap12:operation soapAction="http://selcuk.edu.tr/OgrencininSinavlariniGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:OgrencininSinavlariniGetirUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OgrencininNotlariniGetir">
+      <soap12:operation soapAction="http://selcuk.edu.tr/OgrencininNotlariniGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:OgrencininNotlariniGetirUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETcezaturleri">
+      <soap12:operation soapAction="http://selcuk.edu.tr/GETcezaturleri" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GETcezaturleriUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETizinturleri">
+      <soap12:operation soapAction="http://selcuk.edu.tr/GETizinturleri" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GETizinturleriUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETogrencicezalar">
+      <soap12:operation soapAction="http://selcuk.edu.tr/GETogrencicezalar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GETogrencicezalarUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETogrencicezalarAll">
+      <soap12:operation soapAction="http://selcuk.edu.tr/GETogrencicezalarAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GETogrencicezalarAllUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETogrenciizinler">
+      <soap12:operation soapAction="http://selcuk.edu.tr/GETogrenciizinler" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GETogrenciizinlerUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETogrenciizinlerAktif">
+      <soap12:operation soapAction="http://selcuk.edu.tr/GETogrenciizinlerAktif" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GETogrenciizinlerAktifUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POSTogrencicezalar">
+      <soap12:operation soapAction="http://selcuk.edu.tr/POSTogrencicezalar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:POSTogrencicezalarUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PUTogrencicezalar">
+      <soap12:operation soapAction="http://selcuk.edu.tr/PUTogrencicezalar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PUTogrencicezalarUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DELETEogrencicezalar">
+      <soap12:operation soapAction="http://selcuk.edu.tr/DELETEogrencicezalar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DELETEogrencicezalarUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POSTogrenciizinler">
+      <soap12:operation soapAction="http://selcuk.edu.tr/POSTogrenciizinler" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:POSTogrenciizinlerUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PUTogrenciizinler">
+      <soap12:operation soapAction="http://selcuk.edu.tr/PUTogrenciizinler" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PUTogrenciizinlerUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DELETEogrenciizinler">
+      <soap12:operation soapAction="http://selcuk.edu.tr/DELETEogrenciizinler" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DELETEogrenciizinlerUsers" part="Users" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETasalAskerlik">
+      <soap12:operation soapAction="http://selcuk.edu.tr/GETasalAskerlik" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="yoksisOgr">
+    <wsdl:port name="yoksisOgrSoap" binding="tns:yoksisOgrSoap">
+      <soap:address location="http://193.140.140.38/yoksisOgr/yoksisOgr.asmx" />
+    </wsdl:port>
+    <wsdl:port name="yoksisOgrSoap12" binding="tns:yoksisOgrSoap12">
+      <soap12:address location="http://193.140.140.38/yoksisOgr/yoksisOgr.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://193.140.140.38/yoksisOgr/yoksisOgr.asmx?wsdl" docRef="http://193.140.140.38/yoksisOgr/yoksisOgr.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://193.140.140.38/yoksisOgr/yoksisOgr.asmx" xmlns:q1="http://selcuk.edu.tr/" binding="q1:yoksisOgrSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://193.140.140.38/yoksisOgr/yoksisOgr.asmx" xmlns:q2="http://selcuk.edu.tr/" binding="q2:yoksisOgrSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

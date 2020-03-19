@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DIS_HEKIMLIGIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CIHAZ">
+          <Key>
+            <PropertyRef Name="CIHAZ_ID" />
+          </Key>
+          <Property Name="CIHAZ_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CIHAZ_AD" Type="nvarchar(max)" />
+          <Property Name="ISLEM_BILGISI" Type="nvarchar(max)" />
+          <Property Name="BIRIM_FIYAT" Type="int" />
+          <Property Name="SUTUN_AD" Type="nvarchar" MaxLength="50" />
+          <Property Name="SUTUN_ICERIK" Type="int" />
+          <Property Name="TOPLAM_FIYAT" Type="int" />
+        </EntityType>
+        <EntityType Name="Dosya">
+          <Key>
+            <PropertyRef Name="Dosya_ID" />
+          </Key>
+          <Property Name="Dosya_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dosya_Ad" Type="nvarchar(max)" />
+          <Property Name="Dosya_Tarih" Type="nvarchar(max)" />
+          <Property Name="Dosya_Icerik" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="KULLANICI">
+          <Key>
+            <PropertyRef Name="KUL_ID" />
+          </Key>
+          <Property Name="KUL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KUL_AD" Type="nvarchar" MaxLength="25" />
+          <Property Name="KUL_SIFRE" Type="nvarchar" MaxLength="25" />
+          <Property Name="AD_SOYAD" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="DIS_HEKIMLIGIModelStoreContainer">
+          <EntitySet Name="CIHAZ" EntityType="Self.CIHAZ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dosya" EntityType="Self.Dosya" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KULLANICI" EntityType="Self.KULLANICI" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DIS_HEKIMLIGIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CIHAZ">
+          <Key>
+            <PropertyRef Name="CIHAZ_ID" />
+          </Key>
+          <Property Name="CIHAZ_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CIHAZ_AD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ISLEM_BILGISI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BIRIM_FIYAT" Type="Int32" />
+          <Property Name="SUTUN_AD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SUTUN_ICERIK" Type="Int32" />
+          <Property Name="TOPLAM_FIYAT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Dosya">
+          <Key>
+            <PropertyRef Name="Dosya_ID" />
+          </Key>
+          <Property Name="Dosya_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dosya_Ad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Dosya_Tarih" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Dosya_Icerik" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="KULLANICI">
+          <Key>
+            <PropertyRef Name="KUL_ID" />
+          </Key>
+          <Property Name="KUL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KUL_AD" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="KUL_SIFRE" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="AD_SOYAD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CIHAZ" EntityType="Self.CIHAZ" />
+          <EntitySet Name="Dosya" EntityType="Self.Dosya" />
+          <EntitySet Name="KULLANICI" EntityType="Self.KULLANICI" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DIS_HEKIMLIGIModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="CIHAZ">
+            <EntityTypeMapping TypeName="DIS_HEKIMLIGIModel.CIHAZ">
+              <MappingFragment StoreEntitySet="CIHAZ">
+                <ScalarProperty Name="CIHAZ_ID" ColumnName="CIHAZ_ID" />
+                <ScalarProperty Name="CIHAZ_AD" ColumnName="CIHAZ_AD" />
+                <ScalarProperty Name="ISLEM_BILGISI" ColumnName="ISLEM_BILGISI" />
+                <ScalarProperty Name="BIRIM_FIYAT" ColumnName="BIRIM_FIYAT" />
+                <ScalarProperty Name="SUTUN_AD" ColumnName="SUTUN_AD" />
+                <ScalarProperty Name="SUTUN_ICERIK" ColumnName="SUTUN_ICERIK" />
+                <ScalarProperty Name="TOPLAM_FIYAT" ColumnName="TOPLAM_FIYAT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dosya">
+            <EntityTypeMapping TypeName="DIS_HEKIMLIGIModel.Dosya">
+              <MappingFragment StoreEntitySet="Dosya">
+                <ScalarProperty Name="Dosya_ID" ColumnName="Dosya_ID" />
+                <ScalarProperty Name="Dosya_Ad" ColumnName="Dosya_Ad" />
+                <ScalarProperty Name="Dosya_Tarih" ColumnName="Dosya_Tarih" />
+                <ScalarProperty Name="Dosya_Icerik" ColumnName="Dosya_Icerik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KULLANICI">
+            <EntityTypeMapping TypeName="DIS_HEKIMLIGIModel.KULLANICI">
+              <MappingFragment StoreEntitySet="KULLANICI">
+                <ScalarProperty Name="KUL_ID" ColumnName="KUL_ID" />
+                <ScalarProperty Name="KUL_AD" ColumnName="KUL_AD" />
+                <ScalarProperty Name="KUL_SIFRE" ColumnName="KUL_SIFRE" />
+                <ScalarProperty Name="AD_SOYAD" ColumnName="AD_SOYAD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

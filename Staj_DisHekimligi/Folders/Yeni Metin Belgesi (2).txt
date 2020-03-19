@@ -1,0 +1,16 @@
+var birimfiyat = "birimfiyat_" + id;
+            var p = document.getElementById(birimfiyat).value;
+            var deger = "deger_" + id;
+            var q = document.getElementById(deger).value;
+            alert($(deger).val);
+            var toplam = "toplam_" + id;
+           // alert(p);
+           // alert(q);
+            var totalCNFPK = parseInt(p) * parseInt(q);
+          //  alert(parseInt(totalCNFPK));
+            document.getElementById(toplam).innerHTML = totalCNFPK;
+
+
+///
+
+ @Html.TextBoxFor(x => i.Sutun_icerik, new {@onkeyup= "GetCNFPK(@i.Cihaz_ID)" })

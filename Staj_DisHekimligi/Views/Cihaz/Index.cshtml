@@ -1,0 +1,142 @@
+﻿@using Staj_DisHekimligi.Entitiy
+@model List<CIHAZ>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var cihazlistesi = ViewBag.cihazlist as List<CIHAZ>;
+}
+
+<div class="row" style="margin-top:100px;">
+
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2 style="float:left;"> Cihaz Bilgileri  </h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <p style="float:right;"> @Html.ActionLink("Anasayfaya Dön", "Index", "Home", null, new { @class = "btn waves-effect waves-light btn-danger" })</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+
+            <div class="card-body">
+
+                <div class="card-body">
+
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Cihaz Adı</th>
+                                <th>İşlem Bilgisi</th>
+                                <th>Birim Fiyatı</th>
+                                <th>Fiyatlandırma Şekli</th>
+                                <th>Güncelle</th>
+                                <th>Sil</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var i in Model)
+                            {
+                                <tr>
+                                    <td width="50px" style="text-align:center">@i.CIHAZ_ID</td>
+                                    <td width="300px">@i.CIHAZ_AD</td>
+                                    <td>@i.ISLEM_BILGISI</td>
+                                    <td width="100px" style="text-align:center">@i.BIRIM_FIYAT</td>
+                                    <td width="100px" style="text-align:center">@i.SUTUN_AD</td>
+
+                                    <td width="100px"><a href="#" class="view" data-toggle="modal" data-target="#modalView" onclick="CihazGuncelle(@i.CIHAZ_ID)" >Güncelle</a></td>
+                                    @*<td width="100px"><a href="#" class="view"  onclick="CihazSil(@i.Cihaz_ID)" >Sil</a></td>*@
+                                    <td  width="80px" style="text-align:center">@Html.ActionLink("Sil", "Sil", new { id = i.CIHAZ_ID }, new { @class = "btn btn-warning" })</td>
+                                    <!-- href="/Cihaz/Guncelle/i.Cihaz_ID"-->
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                    @*<a class="btn btn-warning" style="float:right; width:200px;" href="/Cihaz/Ekle">Yeni Cihaz Ekle </a>*@
+                    <div class="row">
+                        <a class="btn btn-warning" style="float:right; width:200px;" data-target="#modalView" data-toggle="modal" onclick="CihazEkle()">Yeni Cihaz Ekle </a>
+                        @*<a class="btn btn-warning" style="margin-left:50px; width:200px;" data-target="#modalView" data-toggle="modal" onclick="DosyaYukle()">Dosya Yukle  </a>*@
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modalView" aria-labelledby="" >
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cihaz Düzenle</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalbody">
+
+            </div>
+            <div class="modal-footer">
+                @*<button type="submit" class="btn btn-primary">Cihazi Düzenle</button>*@
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        function CihazGuncelle(id) {
+            $.ajax({
+                type: 'Get',
+                url: '/Cihaz/Guncelle',
+                data: { 'id': id },
+                //bu işlemler gerçekleşip başarılı olduğunda
+                success: function (data) {
+                    $("#modalbody").html(data);
+                }
+            });
+        }
+        function CihazEkle() {
+            $.ajax({
+                type: 'Post',
+                url: '/Cihaz/Ekle',
+                
+                //bu işlemler gerçekleşip başarılı olduğunda
+                success: function (data) {
+                    $("#modalbody").html(data);
+                }
+            });
+        }
+        function DosyaYukle() {
+            $.ajax({
+                type: 'Get',
+                url: '/Cihaz/DosyaYukle',
+
+                //bu işlemler gerçekleşip başarılı olduğunda
+                success: function (data) {
+                    $("#modalbody").html(data);
+                }
+            });
+        }
+
+      
+    </script>
+   
+
+    }
+
+

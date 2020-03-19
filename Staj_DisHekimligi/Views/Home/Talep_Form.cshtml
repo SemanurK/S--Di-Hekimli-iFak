@@ -1,0 +1,265 @@
+﻿@model  Staj_DisHekimligi.ViewModel.BilgiViewModel
+
+@{
+    ViewBag.Title = "Talep_Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var tips = Model.Tips.Where(m => m.tip_id == Model.bilgi.Calistigi_kurum_tip).SingleOrDefault();
+    var ads = Model._Ads.Where(m => m.k_id == Model.bilgi.Calistigi_kurum_ad).SingleOrDefault();
+  
+    var genel_toplam = 0;
+    foreach(var item in Model.cihazs)
+    {
+        genel_toplam = genel_toplam +(int) item.TOPLAM_FIYAT;
+    }
+
+}
+
+<div class="container">
+
+    <div class="section-content">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="row mb-10">
+                        <div class="col-md-12">
+
+
+
+                            <h2 class="card-title text-uppercase">
+                                ARAŞTIRMA LABORATUVARI (GENEL BİLGİLER)
+                            </h2>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>
+                            1. Aşağıdaki belgelerin çıktısını aldıktan sonra dilekçeyi imzalayarak fiyat teklifi belgesi ile birlikte aşağıdaki adrese ulaştırınız.<br>
+                            <br>
+                            Projeniz ile ilgili Dekanlık Makamı olur yazısı ve fiyat teklifimiz onaylandıktan sonra tarafınıza posta yolu ile gönderilecektir.<br>
+                            <br>
+                            2. Araştırma Laboratuvarımız randevulu çalışmaktadır. Lütfen çalışmanız için Araştırma Laboratuvarı görevlisi Niyazi DÜNDAR ((0332) 223 1201 ) ile irtibata geçiniz.<br>
+                            <br>
+                            Adres : Selçuk Üniversitesi Diş Hekimliği Fakültesi Yazı İşleri Servisi / KONYA<br>
+                            <br>
+                            Not : Bilgi için (0332) 241 4308  numaralı telefonu arayabilirsiniz.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row button-group">
+                    <div class="col-lg-3 col-md-6 ">
+                        <button id="yazdir" type="submit" onclick="Yazdir('#dilekce_yazdir')" class="btn btn-block btn-lg btn-danger">Dilekçe Yazdır </button>
+                        <!--  <a href="javascript:Yazdir('javascript');">yazdır deneme</a>-->
+                    </div>
+                    <div class="col-lg-3 col-md-6 ">
+                        <button type="submit" onclick="Yazdir('#teklif_yazdir')" class="btn btn-block btn-lg btn-danger">Fiyat Teklifi Yazdır </button>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="dilekce_yazdir">       
+        <!--sayfa ilk yüklediğinde bu div gözükecektir.
+    bundan dolayı bu divi ilk olarak gizlememiz gerekir.-->
+        <div id="tarih" style="text-align:right; "></div>
+        <div style="height:10%"></div>
+        <p style="text-align:center;font-family:'Times New Roman'; font-size:20px;">
+            T.C. SELÇUK ÜNİVERSİTESİ DİŞ HEKİMLİĞİ FAKÜLTESİ DEKANLIĞI'NA
+            KONYA
+        </p>
+        <!--pre etiketi paragraftakii boşlukları aynı şekilde ifade etmeye yarar-->
+        <div style="margin-top:40px">
+           
+            <div style="padding:5px 30px;">
+                <!--bir den fazla özellik eklemek istersek ; ile özellikleri ayırabiliriz.-->
+                <pre style="font-family:'Times New Roman'"><b>Proje İsmi :</b>  @Model.bilgi.Proje_ismi</pre>
+                <pre style="font-family:'Times New Roman'"><b>Proje Yürütücüsü :</b>  @Model.bilgi.Unvan @Model.bilgi.Proje_yöneticisi</pre>
+                <pre style="font-family:'Times New Roman'"><b>Diğer Araştırmacılar :</b>  @Model.bilgi.Diger_arastiricilar</pre>
+                <pre style="font-family:'Times New Roman'"><b>Kurum Tipi :</b>  @tips.tip_adi </pre>
+                <pre style="font-family:'Times New Roman'"><b>Kurum Adı :</b>  @ads.kurum_adi</pre>
+                <pre style="font-family:'Times New Roman'"><b>Birim Adı :</b>  @Model.bilgi.Calistigi_birim_ad </pre>
+                <pre style="font-family:'Times New Roman'"><b>Anabilim Dalı :</b>  @Model.bilgi.Anabilim_dali</pre>
+                <pre style="font-family:'Times New Roman'"><b>E-Posta Adresi :</b>  @Model.bilgi.Eposta</pre>
+                <pre style="font-family:'Times New Roman'"><b>Telefon :</b>  @Model.bilgi.Tel</pre>
+                <pre style="font-family:'Times New Roman'"><b>Fax :</b>  @Model.bilgi.Fax</pre>
+            </div>
+            <div style=" padding:10px 30px;">
+                <p style="font-family:'Times New Roman';text-indent:40px;">
+                    Yukarıda kısa künyesi belirtilen proje kapsamında Fakülteniz Araştırma Laboratuvarındaki
+                    cihazları kullanmak istiyorum. Bu çalışma için gerekli iznin ve yat teklinin düzenlenmesi hususunda
+                    gereğini saygılarımla arz ederim.
+                </p>
+            </div>
+            <div style="margin-top:10px; text-align:right; margin-right:60px">
+                <p>@Model.bilgi.Unvan  @Model.bilgi.Proje_yöneticisi</p>
+                <p>İmza</p>
+            </div>
+        </div>
+        <div style=" padding:10px 30px;">
+            <p>Araştırma Laboratuvarı Cihazları</p>
+           
+
+                <table style="border-collapse:collapse; width:100%;" border="1"  >
+                    <thead >
+                        <tr height="40px">
+                            <th style="text-align:left; padding-left:1em;" width="400px">Cihaz/İşlem Adı</th>
+                            <th width="100px">Miktar Türü</th>
+                            <th width="100px">Miktar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model.cihazs)
+                        {
+                        <tr height="40px">
+                            <td style="text-align:left; padding-left:1em;">@item.CIHAZ_AD</td>
+                            <td style="text-align:center">@item.SUTUN_AD</td>
+                            <td style="text-align:center">@item.SUTUN_ICERIK</td>
+                        </tr>
+                                }
+                           
+                        </tbody>
+
+                </table>
+
+            
+        </div>
+    </div>
+<div id="teklif_yazdir" style="font-family:'Times New Roman'">
+    <div id="baslik" style="text-align:center; font-size:14px">Selçuk Üniversitesi Diş Hekimliği Fakültesi</div>
+    <div id="baslik2" style="padding:10px 30px; margin-top:30px;">
+        <div id="logo" style="float:left"><img src="~/Content/assets/images/logo.png" width="150" height="150" /></div>
+        <div id="aciklama" style="text-align:center; font-size:20px; ">
+            <p>T.C <br>Selçuk Üniversitesi <br>Diş Hekimliği Uygulama Araştırma Merkezi<br>Konya</p>
+        </div>
+    </div>
+    <div><p style="color:aqua">----------------------------------------------------------------------------------------------------------------------------------</p></div>
+    <div style="padding:10px 30px; margin-top:40px; text-align:center; font-size:24px">Araştırma Laboratuvarı Cihaz Kullanımına İlişkin Fiyat Teklifi </div>
+    <div>
+        <div style="padding:10px 30px; margin-top:20px; font-size:18px;">
+            <div style="float:left; ">
+                <p>
+                    Sayın;<br>@Model.bilgi.Unvan  @Model.bilgi.Proje_yöneticisi <br>@ads.kurum_adi<br>@Model.bilgi.Calistigi_birim_ad<br> @Model.bilgi.Anabilim_dali
+                </p>
+            </div>
+            <div id="tarih2" style="float:right;"> </div>
+        </div>
+    </div>
+    <div>
+        <div style="padding:10px 30px; margin-top:60px; font-size:16px; float:left;">
+            <p>* Araştırma Laboratuvarı Cihazları</p>
+            <table style="border-collapse:collapse; width:100%;" border="1">
+                <thead>
+                    <tr height="50px">
+                        <th style="text-align:left; padding-left:1em;" width="450px">Cihaz/İşlem Adı</th>
+                        <th width="120px">Miktar Türü</th>
+                        <th width="60px">Miktar</th>
+                        <th width="80px">Birim Fiyat</th>
+                        <th width="100px">Toplam</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.cihazs)
+                    {
+                    
+                    <tr height="40px">
+                        <td style="text-align:left; padding-left:1em;">@item.CIHAZ_AD (@item.ISLEM_BILGISI)</td>
+                        <td style="text-align:center">@item.SUTUN_AD</td>
+                        <td style="text-align:center">@item.SUTUN_ICERIK</td>
+                        <td style="text-align:center">@string.Format("{0:C1}",item.BIRIM_FIYAT)</td>
+                        <td style="text-align:center">@string.Format("{0:C1}", item.TOPLAM_FIYAT) </td>
+                    </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    
+    <div>
+        <div style="margin-top:220px; margin-left:450px; padding:10px 30px;"> Genel Toplam :&ensp; @string.Format("{0:C1}",genel_toplam)</div>
+        
+    </div>
+     <div >
+         <div style=" text-align:center; margin-top:50px;"><p style="margin-top:30px"><p>....................................... <br >....................................... <br /><br /> ONAY </></div>
+     </div>
+     <div style="padding:10px 30px; margin-top:100px;">
+         <p>Proje İsmi :&ensp; @Model.bilgi.Proje_ismi</p>
+         <div><p style="color:aqua">--------------------------------------------------------------------------------------------------------------------</p></div>
+         <div>
+             <p>
+                 Banka : T.C. Ziraat Bankası - KONYA Talas Şubesi IBAN : TR 2500 0100 1439 4255 6862 5004 Vergi Dairesi
+                 : Erciyes Vergi No : 342 025 8046
+             </p>
+             <p>
+                 Not : Ödemenin Avans Olarak Çıkartılıp Hesabımıza Yatırıldıktan Sonra Fatura Kesilip İşlemlere
+                 Başlanacaktır.
+             </p>
+             <p>
+                 488 No.lu kanunun 8. Maddesine göre Döner Sermayeler,Maliye ve Gümrük Bakanlığının 25.5.65 tarih ve
+                 210/107-580/20720 Nolu yazısı ile resmi dairelerden sayıldığından damga vergisinden muaftır. VERGİ
+                 USUL KANUNU HÜKÜMLERİNE TABİ DEĞİLDİR.
+             </p>
+         </div>
+
+     </div>
+
+</div>
+
+                <!--Dilekçe yazdır butonuna tıklandığında yazdırılacak olan sayfanın tasarımı-->
+
+
+                <script type="text/javascript">
+
+                    //sayfa aktif olduğunda
+                    document.getElementById('dilekce_yazdir').style.visibility = "hidden";
+                    document.getElementById('teklif_yazdir').style.visibility = "hidden";
+                    
+                    //belirtilen divin görünürlüğünü kapat
+                    //bugunun tarihini ayarlar
+                    var tarih = new Date();
+                    var aylar = new Array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12');
+                    var gun = tarih.getDate(); var ay = aylar[tarih.getMonth()]; var yil = tarih.getFullYear();
+                    document.getElementById('tarih').innerHTML = gun + " / " + ay + " / " + yil;
+                    document.getElementById('tarih2').innerHTML ="Tarih : "+ gun + " / " + ay + " / " + yil;
+
+                    function Yazdir(div)//div paramaetresi fonksiyonun alacagı paramametre adını belirtir.
+                    {
+                        //hidden yapılan divin görünürlüğü burda açılır.
+                        document.getElementById("dilekce_yazdir").style.visibility = "visible";
+                        //alınan divin içeriğini yazdırmak için oluşturulan fonksiyona html formatında göndeririz
+                        Popup($(div).html());
+                    }
+                    function Popup(gelen) {
+                        var pencere = window.open('', 'dilekce_yazdir');
+                      
+                        pencere.document.write("<hmtl><head><title></title>");
+                       // pencere.document.write("<link rel='stylesheet' href='styles.css'>");
+                        pencere.document.write("</head><body>");
+                        pencere.document.write(gelen);
+                        pencere.document.write("</body></html>");
+                        //yukarıda içeriklerini yazdırdık
+                        pencere.document.close();
+                        document.getElementById("dilekce_yazdir").style.visibility = "hidden";
+                        pencere.focus();
+                        pencere.print();
+                        document.close();
+
+                    }
+                    
+
+                </script>
+
+
+
+

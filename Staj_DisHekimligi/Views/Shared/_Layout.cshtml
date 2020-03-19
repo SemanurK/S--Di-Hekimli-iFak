@@ -1,0 +1,118 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <title>Elite Admin Template - The Ultimate Multipurpose admin template</title>
+    <!-- This page CSS -->
+    <!-- chartist CSS -->
+
+    <link href="~/Content/assets/node_modules/morrisjs/morris.css" rel="stylesheet" />
+
+    <!--Toaster Popup message CSS -->
+
+    <link href="~/Content/assets/node_modules/toast-master/css/jquery.toast.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+
+    <link href="~/Content/dist/css/style.min.css" rel="stylesheet" />
+    <!-- Dashboard 1 Page CSS -->
+
+    <link href="~/Content/dist/css/pages/dashboard1.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- eğer boş bırakılan bir alan olduğunda hata vermesi için -->
+    <link href="~/Content/dist/css/hata.css" rel="stylesheet" />
+    <link href="~/Content/dist/css/YaziBicim.css" rel="stylesheet" />
+
+    <script src="~/Scripts/SadeceSayi.js"></script>
+
+
+
+
+
+</head>
+
+<body class="skin-default-dark fixed-layout">
+    @RenderSection("scripts2", required: false)
+
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+
+        <div class="form-group">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                @RenderBody()
+                @Scripts.Render("~/bundles/jquery")
+                @Scripts.Render("~/bundles/bootstrap")
+                <!--oluşturduğumuz java scriptleri kullanmak için oluşturduğumuz bölümün adını buraya yazıyoruz -->
+                @RenderSection("scripts", required: false)
+
+
+
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+
+    <script src="~/Content/assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
+    <script src="~/Content/assets/node_modules/popper/popper.min.js"></script>
+    <script src="~/Content/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/Content/dist/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="~/Content/dist/js/waves.js"></script>
+    <script src="~/Content/dist/js/sidebarmenu.js"></script>
+    <script src="~/Content/dist/js/custom.min.js"></script>
+    <script src="~/Content/assets/node_modules/raphael/raphael-min.js"></script>
+    <script src="~/Content/assets/node_modules/morrisjs/morris.min.js"></script>
+    <script src="~/Content/assets/node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/Content/assets/node_modules/toast-master/js/jquery.toast.js"></script>
+    <script src="~/Content/dist/js/dashboard1.js"></script>
+    <script src="~/Content/assets/node_modules/toast-master/js/jquery.toast.js"></script>
+    <script src="~/Content/assets/node_modules/peity/jquery.peity.init.js"></script>
+    <script src="~/Content/assets/node_modules/peity/jquery.peity.min.js"></script>
+
+</body>
+
+        </html>

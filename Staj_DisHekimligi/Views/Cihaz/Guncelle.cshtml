@@ -1,0 +1,42 @@
+﻿@model Staj_DisHekimligi.Entitiy.CIHAZ
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("Guncelle", "Cihaz", FormMethod.Post))
+{
+<div class="col-sm-12">
+
+    <div class="form-group">
+        <label>Cihaz ID</label>
+        @Html.TextBoxFor(m => m.CIHAZ_ID, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="form-group">
+        <label>Cihaz Adı</label>
+        @Html.TextBoxFor(m => m.CIHAZ_AD, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+
+        <label>İşlem Bilgisi</label>
+        @Html.TextBoxFor(m => m.ISLEM_BILGISI, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Cihaz Birim Fiyat</label>
+        @Html.TextBoxFor(m => m.BIRIM_FIYAT, new { @class = "form-control", @type = "number" })
+    </div>
+    <div class="form-group">
+        <label>Fiyatlandırma Şekli</label>
+        @Html.TextBoxFor(m => m.SUTUN_AD, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+
+        <button type="submit" class="btn btn-primary">Cihazı Düzenle / Ekle</button>
+    </div>
+
+
+
+</div>
+}
+
+
